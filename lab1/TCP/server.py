@@ -2,7 +2,7 @@ import socketserver
 import string
 
 
-bind_ip = "10.8.0.5" 
+bind_ip = "10.8.0.8" 
 #bind_ip = "0.0.0.0" #funziona su tutte le interfacce del dispositivo
 
 bind_port = 9001

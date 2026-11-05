@@ -126,11 +126,12 @@ class ClientAuthenticator(BaseHTTPRequestHandler):
 
 def main():
     # Set the server address and port
-    server_address = ('10.8.0.2', 8443) #application level server
-    server2_address = ('10.8.0.2', 8444) #transport level server
+    server_address = ('10.8.0.8', 8443) #application level server
+    server2_address = ('10.8.0.8', 8444) #transport level server
 
     cert_path = '/home/alba-pellegrini/UNI/NetSec/lab1/HTTPS/cert.pem'
     key_path = '/home/alba-pellegrini/UNI/NetSec/lab1/HTTPS/key.pem'
+    ca_path = '/home/alba-pellegrini/UNI/NetSec/lab1/HTTPS/ca.crt'
 
     #SERVER
     #SSL
@@ -150,7 +151,7 @@ def main():
 
     HTTPServer.allow_reuse_address = True
     httpd2 = HTTPServer(server2_address, ClientAuthenticator)
-    context2.load_verify_locations("ca.crt")
+    context2.load_verify_locations(ca_path)
     context2.verify_mode = ssl.CERT_REQUIRED
     httpd2.socket = context2.wrap_socket(httpd2.socket, server_side=True)
 
