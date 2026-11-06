@@ -3,7 +3,6 @@ from urllib.parse import urlparse, parse_qs
 import json
 
 class RequestHandler(BaseHTTPRequestHandler):    
-    #onion_address = 'cxdyaqdkhhy7y5bpyifwfx243vsagg74sqrhv5hkdhmp3g6cbtjdpryd.onion'
     latest_token = ''
 
     def do_GET(self):
